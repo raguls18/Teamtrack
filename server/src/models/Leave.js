@@ -1,0 +1,2 @@
+import mongoose from 'mongoose';
+const schema=new mongoose.Schema({user:{type:mongoose.Schema.Types.ObjectId,ref:'User',required:true},startDate:{type:Date,required:true},endDate:{type:Date,required:true},reason:{type:String,required:true,trim:true,maxlength:1000},status:{type:String,enum:['pending','approved','rejected'],default:'pending'},reviewNote:{type:String,default:'',maxlength:500}},{timestamps:true});export default mongoose.model('Leave',schema);

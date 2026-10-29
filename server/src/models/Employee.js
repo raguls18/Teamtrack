@@ -1,0 +1,2 @@
+import mongoose from 'mongoose';
+const schema=new mongoose.Schema({name:{type:String,required:true,trim:true,maxlength:100},email:{type:String,required:true,lowercase:true,trim:true},department:{type:String,required:true,trim:true,maxlength:80},title:{type:String,required:true,trim:true,maxlength:100},status:{type:String,enum:['active','on-leave','inactive'],default:'active'},joinedAt:{type:Date,default:Date.now}},{timestamps:true});schema.index({email:1},{unique:true});export default mongoose.model('Employee',schema);
